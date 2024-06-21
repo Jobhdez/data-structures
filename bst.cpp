@@ -2,19 +2,19 @@
 #include <algorithm>
 
 using namespace std;
-
+template <class T>
 class Node {
 private:
     Node *left, *right;
-    int data;
+    T data;
 public:
-    Node(int data) {
+    Node(T data) {
         this->data = data;
         left = nullptr;
         right = nullptr;
     }
 
-    void insert(int value) {
+    void insert(T value) {
         if (value <= this->data) {
             if (left == nullptr) {
                 left = new Node(value);
@@ -30,7 +30,7 @@ public:
         }
     }
 
-    bool contains(int value) {
+    bool contains(T value) {
         if (value == this->data)
             return true;
         if (value < this->data) {
@@ -55,7 +55,7 @@ public:
 };
 
 int main() {
-    Node* root = new Node(4);
+    Node<int>* root = new Node(4);
     root->insert(2);
     root->insert(1);
     root->insert(3);
